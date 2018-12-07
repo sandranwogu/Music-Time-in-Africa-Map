@@ -1,0 +1,173 @@
+body {
+    font-family: 'Inconsolata', Monaco, "Lucida Console", Consolas, "Courier New";
+    /*    background: #58585B;*/
+}
+h1 {
+    font-family: 'Inconsolata', Monaco, "Lucida Console", Consolas, "Courier New";
+    font-size: 40px;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    padding: 3px 0px;
+    /*    margin: -5px 0 0px 0;*/
+    font-style: normal;
+    margin-bottom:0.2em;
+}
+
+.desc {
+    font-family: "Mercury SSm A", "Mercury SSm B";
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.4em;
+    margin: 0 auto;
+}
+
+.centered{
+    text-align:center;
+}
+
+.button {
+    width: 100px;
+    padding: 5px 5px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    text-align: center;
+    font-size: .9em;
+    border: 1px solid #e0e0e0;
+    float: left;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.button:hover {
+    background: #e0e0e0;
+}
+
+.button.current {
+    background: #000;
+    color: #fff;
+}
+
+#n {
+    font-size: 3.0em;
+}
+
+.chartholder{
+    width: 20%;
+    margin-right:3%;
+    float:left;
+    text-align:center;
+    padding-bottom:40px;
+}
+
+.chartholder h6 {
+    font-family: Consolas;
+    text-transform: uppercase;
+    font-weight:bold;
+}
+
+/*bl.ocks code starts here*/
+
+.counties {
+  fill: none;
+}
+
+
+
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  margin: 1em auto 4em auto;
+  position: relative;
+  tab-size: 2;
+}
+
+.key path {
+  display: none;
+}
+
+.key line {
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+
+.states {
+  /*fill: none;
+  stroke: #000;*/
+ /* stroke-linejoin: round;*/
+
+  stroke: #999;
+  /*stroke-dasharray: 2,2;*/
+  stroke-linejoin: round;
+}
+
+.black { fill: #000000;}
+
+.title {
+  font-size: 25px;
+  font-weight: 300;
+
+}
+
+.tick text {
+  font-size: 10px;
+}
+
+.subunit {
+  /*fill: #ddc; */
+  cursor: pointer;
+}
+
+.subunit-boundary {
+  fill: none;
+  stroke: #fff;
+  /*stroke-dasharray: 2,2;
+  stroke-linejoin: round;*/
+}
+
+.caption {
+  font-size: 20px;
+}
+
+/*
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 50px;
+    height: 15px;
+    padding: 2px;
+    padding-left: 6px;
+    font: 12px sans-serif;
+    background: #000;
+    border: 0px;
+    border-radius: 4px;
+    pointer-events: none;
+    color: #fff;
+}
+*/
+
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    display: inline;
+    padding: 6px;
+    font: 13px sans-serif;
+    background-color: #000;
+    border: 0px;
+    border-radius: 2px;
+    pointer-events: none;
+    color: #fff;
+}
+
+
+
+.svg {
+  width: 960px;
+  margin: 0 auto;
+}
