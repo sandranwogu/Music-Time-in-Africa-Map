@@ -164,7 +164,7 @@ function visualizeAfricaChart(dataItem) {
         g.call(xAxis).append("text")
             .attr("class", "caption")
             .attr("y", -6)
-            .text("Population in Africa");
+            .text("Number of times mentioned in the broadcast");
         // key end
 
         var formatNumber = d3.format(",.0f");
