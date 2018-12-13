@@ -9,7 +9,7 @@ var country_dict = [];
 // Loads the CSV file
 function loadData() {
     // load the demographics.csv file
-    d3.csv("data/mapData.csv", function (d) {
+    d3.csv("./data/mapData.csv", function (d) {
   // assign it to the data variable, and call the visualize function by first filtering the data
            all_data = d;
            all_data.forEach(function (item) {
@@ -119,7 +119,7 @@ function visualizeAfricaChart(dataItem) {
 
 
 
-      d3.json("data/africaTopoMap.json", function(error, data) {
+      d3.json("./data/africaTopoMap.json", function(error, data) {
         if (error) return console.error(error);
 
         //jenks for color binning
