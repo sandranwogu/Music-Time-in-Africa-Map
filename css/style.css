@@ -171,3 +171,25 @@ div.tooltip {
   width: 960px;
   margin: 0 auto;
 }
+
+
+
+form  {
+    margin: 60px 0 0 0 !important;
+ }
+
+.ui-slider .ui-btn-inner {
+    padding: 4px 0 0 0 !important;
+    fill: red
+}
+
+.ui-slider-popup {
+    position: absolute !important;
+    width: 72px;
+    height: 64px;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 14px;
+    z-index: 100;
+    opacity: 0.8;
+}
