@@ -1,5 +1,6 @@
 
 var dataItem = {};
+var all_data;
 
 $(document).ready(function () {
     loadData();});
@@ -8,7 +9,7 @@ var country_dict = [];
 // Loads the CSV file
 function loadData() {
     // load the demographics.csv file
-    d3.csv("./data/mapData.csv", function (d) {
+    d3.csv("data/mapData.csv", function (d) {
   // assign it to the data variable, and call the visualize function by first filtering the data
            all_data = d;
            all_data.forEach(function (item) {
@@ -16,7 +17,7 @@ function loadData() {
               });
               var params = getDataVals();
               var dataItem = findDataItem(params);
-              console.log(country_dict);
+              //console.log(country_dict);
               visualizeAfricaChart(dataItem);
             });
     // call the visualization function by first findingDataItem
@@ -46,7 +47,7 @@ function findDataItem(params) {
   // console.log("filtered data is ",filtered);
 
   dataItem.forEach(function(v) {
-    console.log(v);
+    //console.log(v);
     countries_list = v.Country.split(",");
     countries_list.forEach(function(c){
       c = c.trim();
@@ -54,7 +55,7 @@ function findDataItem(params) {
       else {country_dict[c] = 1}
     })
   });
-  console.log(dataItem);
+  //console.log(dataItem);
   return dataItem;
 }
 
@@ -98,7 +99,7 @@ function visualizeAfricaChart(dataItem) {
       var toGreyExcept = function(t) {
 
         var color = d3.select(t).style("fill");
-        console.log(color)
+        //console.log(color)
         d3.selectAll(".subunit").style("fill", function(d) {
 
           //var a = e.data.color;
@@ -118,7 +119,7 @@ function visualizeAfricaChart(dataItem) {
 
 
 
-      d3.json("./data/africaTopoMap.json", function(error, data) {
+      d3.json("data/africaTopoMap.json", function(error, data) {
         if (error) return console.error(error);
 
         //jenks for color binning
@@ -159,12 +160,13 @@ function visualizeAfricaChart(dataItem) {
             .attr("height", 8)
             .attr("x", function(d) { return d.x0; })
             .attr("width", function(d) { return d.x1 - d.x0; })
+            .transition()
             .style("fill", function(d) { return d.z; });
 
         g.call(xAxis).append("text")
             .attr("class", "caption")
             .attr("y", -6)
-            .text("Number of times mentioned in the broadcast");
+            .text("Number of times featured");
         // key end
 
         var formatNumber = d3.format(",.0f");
@@ -201,7 +203,7 @@ function visualizeAfricaChart(dataItem) {
             .attr("class", function(d) { return "subunit " + d.properties.subunit; })
             .attr("d", path)
             .style("fill", function(d, i) {
-              var country = d.properties.admin;
+              var country = d.properties.geounit;
               if (country in country_dict) {return colorScale(country_dict[country]);}
               else {return "#808080"}
                });
@@ -211,7 +213,8 @@ function visualizeAfricaChart(dataItem) {
 
         countries.on("mouseover", function (d, i) {
             //console.log(this)
-            this_country = d.properties.subunit
+            this_country = d.properties.geounit
+            if (!(this_country in  country_dict)) {country_dict[this_country] = 0}
             tooltip.show("<b>" + this_country  + "</b>" + "<br>" + "Current Population: " + numFormat(d.properties.pop_est) +"<br>" + "Number of times featured: " + country_dict[this_country]);
             //toGreyExcept(this);
         });
